@@ -1,0 +1,55 @@
+{
+    "name": "client",
+    "version": "0.0.1",
+    "description": "client",
+    "main": "app.js",
+    "browser": {
+        "fs": false,
+        "path": false,
+        "os": false
+    },
+    "scripts": {
+        "analyze": "npm run analyze:bundle",
+        "analyze:bundle": "webpack --profile --json=bundle-stats.json && webpack-bundle-analyzer ./bundle-stats.json",
+        "analyze:unimported": "unimported",
+        "build": "webpack",
+        "build:ci": "webpack --env ci",
+        "build:development": "webpack --mode=development",
+        "build:production": "webpack --mode=production",
+        "lint": "npm run lint:format && npm run lint:standards -- --quiet",
+        "lint:fix": "npm run lint:format:fix && npm run lint:standards:fix",
+        "lint:format": "prettier --config ../.prettierrc.json --check src/**",
+        "lint:format:fix": "prettier --config ../.prettierrc.json --write src/**",
+        "lint:standards": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
+        "lint:standards:fix": "npm run lint:standards -- --fix",
+        "dev": "npm start",
+        "e2e": "NODE_OPTIONS='--max-old-space-size=8192' webpack serve --mode=production --env e2e",
+        "generate:ui:presentational": "swd generate component --template='.templates/presentational-component' --components-directory='src/ui/presentational'",
+        "start": "webpack serve --mode=development",
+        "start:production": "webpack serve --mode=production",
+        "test": "jest --collectCoverage",
+        "test:watch": "DEBUG_PRINT_LIMIT=100000 jest --watch",
+        "test:watch:coverage": "jest --collectCoverage --watchAll"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/socraticworks/socratic.git",
+        "directory": "client"
+    },
+    "author": "bduimstra",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/socraticworks/socratic/issues"
+    },
+    "homepage": "https://github.com/socraticworks/socratic/client#readme",
+    "devDependencies": {
+        "@types/react": "^18.2.0",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.10.8",
+        "gql.tada": "^1.8.1",
+        "graphql": "^16.9.0",
+        "react": "^18.2.0"
+    }
+}

@@ -1,5 +1,5 @@
 type Query {
-  todo(id: String!): Todo
+  todo(id: String!): [Todo]
 }
 
 type Todo {
