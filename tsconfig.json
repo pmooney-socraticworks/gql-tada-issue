@@ -13,18 +13,12 @@
         "skipLibCheck": true /* Skip type checking of declaration files. */,
         "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
         "resolveJsonModule": true,
-        "paths": {
-            "#builders": ["../lib/builders/src/index"],
-            "#filters": ["../lib/filters/src/index"],
-            "#automations": ["../lib/automations/src/index"],
-            "#types": ["../shared/types/index"],
-            "#types/*": ["../shared/types/*"]
-        },
         "plugins": [
             {
                 "name": "gql.tada/ts-plugin",
                 "schema": "./schema.graphql",
                 "tadaOutputLocation": "./graphql-env.d.ts",
+                "trackFieldUsage": false
             }
         ],
     },

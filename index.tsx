@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client'
-import React from 'react'
 import { graphql } from './graphql'
 
 const todoFragment = graphql(`
@@ -19,9 +18,9 @@ const todoQuery = graphql(`
 `, [todoFragment])
 
 const App = () => {
-    const { data} = useQuery(todoQuery, { variables: { id: '1'}})
+    const { data } = useQuery(todoQuery, { variables: { id: '1'}})
 
     return (
-        <div></div>
+       null 
     )
 }
