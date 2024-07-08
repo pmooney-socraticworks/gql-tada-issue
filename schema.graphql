@@ -1,0 +1,9 @@
+type Query {
+  todo(id: String!): Todo
+}
+
+type Todo {
+  id: String!
+  archived: Boolean!
+  description: String!
+}
